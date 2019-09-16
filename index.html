@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Loveliness</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="window">
+            <div class="light_halo"></div>
+            <div class="take_1 take_common"></div>
+            <!-- <div class="take_2"></div> -->
+        </div>
+        <div class="window">
+            <div class="light_halo"></div>
+            <div class="take_1 take_common"></div>
+        </div>
+        <div class="window">
+            <div class="light_halo"></div>
+            <div class="take_1 take_common"></div>
+        </div>
+        <div class="window">
+            <div class="light_halo"></div>
+            <div class="take_1 take_common"></div>
+        </div>
+        <div class="window">
+            <div class="light_halo"></div>
+            <div class="take_1 take_common"></div>
+        </div>
+        <div class="window">
+            <div class="light_halo"></div>
+            <div class="take_1 take_common"></div>
+        </div>
+        <div class="window">
+            <div class="light_halo"></div>
+            <div class="take_1 take_common"></div>
+        </div>
+        <div class="window">
+            <div class="light_halo"></div>
+            <div class="take_1 take_common"></div>
+        </div>
+        <div class="window">
+            <div class="light_halo"></div>
+            <div class="take_1 take_common"></div>
+        </div>
+    </div>
+    <audio id="mp3" class="mp3">
+        <source src="./sandman.mp3"></source>
+    </audio>
+    <div class="play_btn" id="play_btn"></div>
+    <script>
+        document.getElementById('play_btn').addEventListener('click', function(){
+            document.getElementById('mp3').play();
+            this.className += " hidden";
+            [...document.getElementsByClassName("take_common")].forEach((element, index) => {
+                setTimeout(function() {
+                    element.className += " animation";
+                    for (let i = 0;i< 6; i++) {
+                        setTimeout(()=>{
+                            element.className = [...element.classList].filter((item)=> item.indexOf("take") == -1).join(" ") + ` take_common take_${i+1}`;
+                            // if (i == 5) {
+                            //     setTimeout(()=>{
+                            //         element.className = element.className.split("animation").join(" ");
+                            //     }, 2000);
+                            // }
+                        }, i * 2000);
+                    }
+                }, index * 2000 / 9);
+            });
+            setTimeout(function() {
+                document.getElementById('play_btn').className = document.getElementById('play_btn').className.split("hidden").join(" ");
+                [...document.getElementsByClassName("take_common")].forEach((element, index) => {
+                    element.className = element.className.split("animation").join(" ");
+                    // element.className = element.className.split("take_6").join(" ");
+                    // element.className += " take_1";
+                });
+            }, 14000);
+        }, false);
+    </script>
+</body>
+
+</html>

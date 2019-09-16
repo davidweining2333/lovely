@@ -1,0 +1,192 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html {
+  height: 100%; }
+
+body {
+  height: 100%; }
+
+.container {
+  height: 100%;
+  background: black; }
+
+.container::after {
+  clear: both;
+  content: "";
+  display: block; }
+
+.window {
+  float: left;
+  width: calc(100% / 3);
+  height: calc(100% / 3);
+  /* background: rgb(103,85,74); */
+  background: radial-gradient(circle at 70% 50%, #c3afa1, #67554a);
+  position: relative;
+  overflow: hidden;
+  transform: scale(0); }
+  .window:nth-child(1) {
+    animation: 0.5s windowInit linear 0.1s forwards; }
+    .window:nth-child(1) .take_6 {
+      background-image: url(loneliness_1.jpg) !important; }
+  .window:nth-child(2) {
+    animation: 0.5s windowInit linear 0.2s forwards; }
+    .window:nth-child(2) .take_6 {
+      background-image: url(loneliness_2.jpg) !important; }
+  .window:nth-child(3) {
+    animation: 0.5s windowInit linear 0.3s forwards; }
+    .window:nth-child(3) .take_6 {
+      background-image: url(loneliness_3.jpg) !important; }
+  .window:nth-child(4) {
+    animation: 0.5s windowInit linear 0.4s forwards; }
+    .window:nth-child(4) .take_6 {
+      background-image: url(loneliness_4.jpg) !important; }
+  .window:nth-child(5) {
+    animation: 0.5s windowInit linear 0.5s forwards; }
+    .window:nth-child(5) .take_6 {
+      background-image: url(loneliness_5.jpg) !important; }
+  .window:nth-child(6) {
+    animation: 0.5s windowInit linear 0.6s forwards; }
+    .window:nth-child(6) .take_6 {
+      background-image: url(loneliness_6.jpg) !important; }
+  .window:nth-child(7) {
+    animation: 0.5s windowInit linear 0.7s forwards; }
+    .window:nth-child(7) .take_6 {
+      background-image: url(loneliness_7.jpg) !important; }
+  .window:nth-child(8) {
+    animation: 0.5s windowInit linear 0.8s forwards; }
+    .window:nth-child(8) .take_6 {
+      background-image: url(loneliness_8.jpg) !important; }
+  .window:nth-child(9) {
+    animation: 0.5s windowInit linear 0.9s forwards; }
+    .window:nth-child(9) .take_6 {
+      background-image: url(loneliness_9.jpg) !important; }
+  .window .light_halo {
+    position: absolute;
+    left: calc(70% - 15px);
+    top: calc(50% - 15px);
+    width: 30px;
+    height: 30px;
+    background: #fffbfa;
+    border: 3px solid #867563;
+    border-radius: 30px;
+    box-shadow: 0px 0px 12px 11px #f7e5d2; }
+  .window .take_common {
+    width: 100%;
+    height: 100%;
+    position: absolute; }
+  .window .take_1 {
+    background: 0 0/cover url(loneliness_5.png) no-repeat;
+    bottom: -100%;
+    right: -100%;
+    transform: rotateZ(-60deg); }
+    .window .take_1.animation {
+      animation: 2s wriggle ease-in-out; }
+  .window .take_2 {
+    background: 0 100%/contain url(loneliness_1_clip.png) no-repeat;
+    right: -100%;
+    top: 0; }
+    .window .take_2.animation {
+      animation: 2s translation_2left ease-in-out; }
+  .window .take_3 {
+    background: 0 100%/contain url(loneliness_2_clip.png) no-repeat;
+    bottom: -50%; }
+    .window .take_3.animation {
+      animation: 2s translation_2topback ease-in-out; }
+  .window .take_4 {
+    background: 0 100%/contain url(loneliness_3_clip.png) no-repeat;
+    right: -100%; }
+    .window .take_4.animation {
+      animation: 2s translation_2leftback ease-in-out; }
+  .window .take_5 {
+    background: 0 100%/contain url(loneliness_4_clip.png) no-repeat;
+    left: -100%; }
+    .window .take_5.animation {
+      animation: 2s translation_2rightback ease-in-out; }
+  .window .take_6 {
+    background: 0 50%/contain url(loneliness_1.jpg) no-repeat; }
+    .window .take_6.animation {
+      animation: 2s windowInit ease-in-out; }
+
+.mp3 {
+  /* visibility: hidden; */
+  position: absolute;
+  bottom: 0px; }
+
+.play_btn {
+  z-index: 1;
+  width: 50px;
+  height: 50px;
+  background: url(start.png) round;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  opacity: 1; }
+  .play_btn.hidden {
+    transition: all .3s linear;
+    opacity: 0; }
+
+@keyframes wriggle {
+  0% {
+    bottom: -100%;
+    right: -180%;
+    transform: rotateZ(-65deg); }
+  50% {
+    bottom: -45%;
+    right: -82%;
+    transform: rotateZ(-55deg); }
+  100% {
+    bottom: -100%;
+    right: -180%;
+    transform: rotateZ(-60deg); }
+  10% {
+    transform: rotateZ(-55deg); }
+  20% {
+    transform: rotateZ(-65deg); }
+  30% {
+    transform: rotateZ(-55deg); }
+  40% {
+    transform: rotateZ(-65deg); }
+  60% {
+    transform: rotateZ(-65deg); }
+  70% {
+    transform: rotateZ(-55deg); }
+  80% {
+    transform: rotateZ(-65deg); }
+  90% {
+    transform: rotateZ(-55deg); } }
+@keyframes translation_2left {
+  0% {
+    right: -100%; }
+  100% {
+    right: 100%; } }
+@keyframes translation_2leftback {
+  0% {
+    right: -100%; }
+  50% {
+    right: 0%; }
+  100% {
+    right: -100%; } }
+@keyframes translation_2rightback {
+  0% {
+    left: -100%; }
+  50% {
+    left: 0%; }
+  100% {
+    left: -100%; } }
+@keyframes translation_2topback {
+  0% {
+    bottom: -100%; }
+  50% {
+    bottom: -20%; }
+  100% {
+    bottom: -100%; } }
+@keyframes windowInit {
+  0% {
+    transform: rotate(0deg) scale(0); }
+  100% {
+    transform: rotate(360deg) scale(1); } }
+
+/*# sourceMappingURL=index.css.map */
